@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        .cont { 
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            background-color: #343a40; 
+            color: white; 
+            padding: 10px 20px; 
+            position: fixed; 
+            top: 0; 
+            left: 0;
+            right: 0;
+            z-index: 1001; 
+            font-size: 0.9rem;
+        } 
+        .call ul { 
+            list-style-type: none; 
+            padding: 0; 
+            margin: 0; 
+            display: flex; 
+            align-items: center; 
+        } 
+        .call li { 
+            margin-right: 15px; 
+        } 
+        .call i { 
+            margin-right: 5px; 
+        } 
+        .socails i { 
+            margin-left: 10px; 
+        }
+        @media (max-width: 992px) {
+            .cont {
+                display: none;
+            }
+        }
+        .navbar {
+            transition: all 0.3s ease;
+            position: fixed;
+            top: 40px; /* Height of .cont */
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        .objective-section {
+            background-color: white;
+        }
+        .partner-section{
+            background-color: white;
+        }
+        .about-section{
+            background-image: url("images/bkue.jpg");
+        }
+        .team-section{
+            background-color: white;
+        }
+        .footer-side {
+            background-color: white;
+        }
+        @media (max-width: 992px) {
+        #objectives .row {
+            flex-direction: column;
+            align-items: center;
+        }
+        #objectives .col-lg-3 {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 2rem;
+        }
+    }
+        @media (min-width: 992px) {
+            body {
+                padding-top: 40px; /* Height of .cont */
+            }
+            .navbar-nav {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .navbar.scrolled {
+                background-color: #007bff !important;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                max-width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 13px;
+                overflow: hidden;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                position: fixed;
+                top: 50px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1000;
+            }
+            .navbar.scrolled .container {
+                display: flex;
+                justify-content: center;
+            }
+            .navbar.scrolled .navbar-collapse {
+                flex-grow: 0;
+            }
+            .navbar.scrolled .navbar-nav .nav-link {
+                color: white !important;
+            }
+            .navbar.scrolled .navbar-nav .nav-link:hover {
+                color: yellow !important;
+            }
+            .navbar.scrolled .navbar-brand,
+            .navbar.scrolled .btn-primary {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div class="call">
+            <ul>
+                <li><i class="fa-solid fa-phone fa-shake"></i> +233 (203315617)/ +233 (549344009)</li>
+                <li><i class="fa-regular fa-envelope fa-beat-fade"></i> Info@necessaryaidalliance.org</li>
+                <li><i class="fa-solid fa-street-view fa-bounce"></i>GPS Address: XW-0107-3979, Post Office Box 68, Wa, Upper West Region.</li>
+            </ul>
+        </div>
+        <div class="socails">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-google"></i>
+            <i class="fa-brands fa-pinterest"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" alt="logo" width="60" height="60">
+            </a>
+            
+            <!-- Toggle button for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#objectives">Objectives</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Donate button -->
+            <a href="#" class="btn btn-primary bounce">Donate</a>
+        </div>
+    </nav>
+    <section id="home" class="hero-section">
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="images/logo.png" alt="" width="100" height="100">
+            <h1 class="display-5 fw-bold text-body-light"><span class="text-primary">Welcome</span> to Necessary Aid Alliance</h1>
+            <div class="col-lg-6 mx-auto">
+              <p class="lead mb-4">Necessary Aid Alliance is a registered Non-Governmental Organization in Ghana that seeks to canvass educational support for rural children, promote gender equality, foster girl child empowerment, stimulating skills training for women in rural communities and providing support for vulnerable groups.  Our utmost aim is to break the cycle of endemic poverty through education, entrepreneurial training for women so as to economically empower them and ensure self-reliance.</p>
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Read More</button>
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <section id="objectives" class="objective-section text-center">
+            <header class="team-header text-center">
+                <div class="container">
+                    <h2>Objectives</h2>
+                    <p class="lead">Our objectives</p>
+                </div>
+            </header>
+        <div class="container px-4 py-5" id="featured-3">
+            <div class="row g-4 py-5 justify-content-center">
+                <div class="col-lg-2 col-md-6">
+                    <div class="feature">
+                        <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
+                            <!-- <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg> -->
+                            <img src="images/icons8-education-96.png" alt="education" width="100" height="100">
+                        </div>
+                        <h3 class="fs-4 text-body-emphasis">Education - Read To Lead</h3>
+                        <p class="small text-black">At NAA-Ghana, we understand education is the most powerful weapon which you can use to change the world.</p>
+                        <a href="#" class="icon-link">
+                            Read More
+                            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="feature">
+                        <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
+                            <img src="images/icons8-gender-96.png" alt="education" width="100" height="100">
+                        </div>
+                        <h3 class="fs-4 text-body-emphasis">Gender Equality</h3>
+                        <p class="small text-black">Gender equality is a human fight not a female fight. This is why we work to attack cultural norms at the local level.</p>
+                        <a href="#" class="icon-link">
+                            Read More
+                            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="feature">
+                        <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
+                            <img src="images/icons8-superwoman-96.png" alt="education" width="100" height="100">
+                        </div>
+                        <h3 class="fs-4 text-body-emphasis">Girl Child Empowerment</h3>
+                        <p class="small text-black">We ensure that teenage girls are empowered to make a strategic life choice that affects them.</p>
+                        <a href="#" class="icon-link">
+                            Read More
+                            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="feature">
+                        <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
+                            <img src="images/icons8-skills-64.png" alt="education" width="100" height="100">
+                        </div>
+                        <h3 class="fs-4 text-body-emphasis">Skills Training</h3>
+                        <p class="small text-black">We stimulate entrepreneurial training for women to acquire skills in a variety of practical trades to create a livelihood.</p>
+                        <a href="#" class="icon-link">
+                            Read More
+                            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="feature">
+                        <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
+                            <img src="images/icons8-money-94.png" alt="education" width="100" height="100">
+                        </div>
+                        <h3 class="fs-4 text-body-emphasis">Skills Training</h3>
+                        <p class="small text-black">Our organizations canvass support financially and logistically wise to distribute among those in need.</p>
+                        <a href="#" class="icon-link">
+                            Read More
+                            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <header class="team-header text-center">
+            <div class="container">
+                <h2>About us</h2>
+                <p class="lead">Our mission and obejctives</p>
+            </div>
+        </header>
+        <div class="container px-4" id="featured-3">
+            <div class="row align-items-md-stretch mt-5">
+                <div class="col-md-6 sm-1">
+                  <div class="h-100 p-5 text-bg-dark rounded-3">
+                    <h2>Mission</h2>
+                    <p>We work to bridge the educational inequality gap in rural communities whilst empowering the girl child to make informed strategic life choices. Necessary Aid Alliance offers skills training programs for women to leverage for improved finances. We also provide continuous care and support for vulnerable groups in society.</p>
+                  </div>
+                </div>
+                <div class="col-md-6 sm-1">
+                  <div class="h-100 p-5 bg-body-tertiary border rounded-3 text-black">
+                    <h2>Vision</h2>
+                    <p>Thriving rural communities where children will have the opportunity to attain quality education, teenage girls will be safe and free to make informed decisions, women will be able to earn enough to feed families, and inspired healthy vulnerable groups.</p>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="container col-xxl-8">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+              <div class="col-10 col-sm-8 col-lg-6">
+                <img src="images/trial.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="1000" height="900" loading="lazy">
+              </div>
+              <div class="col-lg-6">
+                <h3 class="display-5 fw-bold text-white lh-1 mb-3">Become a <em>Donor</em>. <br>Support us today!</h3>
+                <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                  <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Donate</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="logos-section">
+        <header class="team-header text-center mb-5">
+            <div class="container">
+                <h2>Our Partners</h2>
+                <p class="lead">Meet our dedicated Partners</p>
+            </div>
+        </header>
+        <div class="container">
+            <div class="logos-container" id="logosContainer">
+                <div class="logo-item">
+                    <img src="images/IRI.jpeg" alt="IRI-logo">
+                </div>
+                <div class="logo-item">
+                    <img src="images/Plan.jpeg" alt="Plan-logo">
+                </div>
+                <div class="logo-item">
+                    <img src="images/og-img.webp" alt="Plan-logo">
+                </div>
+                <div class="logo-item">
+                    <img src="images/UNICEF_Logo.png" alt="Plan-logo">
+                </div>
+                <div class="logo-item">
+                    <img src="images/png-clipart-us-aid-from-american-people-lofo-usaid-logo-icons-logos-emojis-iconic-brands.png" alt="Plan-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team-section">
+        <header class="team-header text-center">
+            <div class="container">
+                <h2>Our Team</h2>
+                <p class="lead">Meet the dedicated individuals behind our mission</p>
+            </div>
+        </header>
+    
+        <main class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img src="images/Team-2-e1609522272989-400x600.png" alt="Jane Doe">
+                        <div class="team-member-info">
+                            <h3>Jane Doe</h3>
+                            <h5>Executive Director</h5>
+                            <p>Jane brings over 15 years of experience in non-profit management and a passion for community development.</p>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="far fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img src="images/Team-2-e1609522272989-400x600.png" alt="John Smith">
+                        <div class="team-member-info">
+                            <h3>John Smith</h3>
+                            <h5>Program Manager</h5>
+                            <p>With a background in social work, John leads our initiatives to create lasting impact in communities.</p>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="far fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img src="images/Team-2-e1609522272989-400x600.png" alt="Emily Chen">
+                        <div class="team-member-info">
+                            <h3>Emily Chen</h3>
+                            <h5>Volunteer Coordinator</h5>
+                            <p>Emily's enthusiasm and organizational skills help mobilize our amazing team of volunteers.</p>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="far fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img src="images/Team-2-e1609522272989-400x600.png" alt="Michael Johnson">
+                        <div class="team-member-info">
+                            <h3>Michael Johnson</h3>
+                            <h5>Fundraising Specialist</h5>
+                            <p>Michael's innovative strategies have helped us expand our reach and increase our impact year after year.</p>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="far fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img src="images/Team-2-e1609522272989-400x600.png" alt="Sarah Lee">
+                        <div class="team-member-info">
+                            <h3>Sarah Lee</h3>
+                            <h5>Community Outreach Coordinator</h5>
+                            <p>Sarah's deep connections in the community help us identify and address the most pressing local needs.</p>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="far fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img src="images/Team-2-e1609522272989-400x600.png" alt="David Patel">
+                        <div class="team-member-info">
+                            <h3>David Patel</h3>
+                            <h5>Finance Manager</h5>
+                            <p>David ensures our resources are used efficiently and transparently to maximize our impact on the community.</p>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="far fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top footer-side">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+              <!-- <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg> -->
+               <img src="images/logo.png" alt="" width="30" height="24">
+            </a>
+            <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Necessary Aid Alliance, Made with 💖</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+          </ul>
+        </footer>
+      
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            var navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50 && window.innerWidth >= 992) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script>
+        // Function to update class based on number of logos
+        function updateLogoContainerClass() {
+            const container = document.getElementById('logosContainer');
+            const logoItems = container.getElementsByClassName('logo-item');
+            if (logoItems.length === 2) {
+                container.classList.add('two-items');
+            } else {
+                container.classList.remove('two-items');
+            }
+        }
+
+        // Run on page load
+        updateLogoContainerClass();
+    </script>
+</body>
+</html>
