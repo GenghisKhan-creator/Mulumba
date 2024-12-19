@@ -18,31 +18,15 @@
             color: #007bff;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-        .card {
-            transition: transform 0.3s;
+        .project-card {
+            transition: transform 0.3s ease-in-out;
         }
-        .card:hover {
+        .project-card:hover {
             transform: translateY(-5px);
         }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-        .btn-primary:hover {
-            background-color: #218838;
-            border-color: #1e7e34;
-        }
-        .list-group-item a {
-            color: inherit;
-            text-decoration: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-        .list-group-item a:hover {
-            text-decoration: none;
-            color: inherit;
+        .project-image {
+            height: 200px;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -113,79 +97,98 @@
 
     <div class="jumbotron jumbotron-fluid py-5 mt-5">
         <div class="container text-center">
-            <h1 class="display-4">Our Charity Blog</h1>
-            <p class="lead">Stay updated with our latest news and stories</p>
+            <h1 class="display-4">Our Projects</h1>
+            <p class="lead">What we've been up to.</p>
         </div>
     </div>
 
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-md-8">
-                <h2 class="mb-4">Latest Posts</h2>
-                <div class="card mb-4">
-                    <img src="images/leon-elldot-C8Q_zR8PDlA-unsplash.jpg" class="card-img-top" alt="Blog post image">
+    <main class="container mt-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Project 1 -->
+            <div class="col">
+                <div class="card h-100 shadow project-card">
+                    <img src="/images/drinking.jpg" class="card-img-top project-image" alt="Clean Water Initiative">
                     <div class="card-body">
-                        <h5 class="card-title">Volunteer Spotlight: Meet Sarah</h5>
-                        <p class="card-text">Sarah has been volunteering with us for over 5 years. Learn about her inspiring journey and the lives she's touched.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
+                        <h5 class="card-title">Clean Water Initiative</h5>
+                        <p class="card-text">Providing clean and safe drinking water to communities in need through well-digging and water purification systems.</p>
                     </div>
-                </div>
-                <div class="card mb-4">
-                    <img src="images/annie-spratt-2rMn97DPTdU-unsplash.jpg" class="card-img-top" alt="Blog post image">
-                    <div class="card-body">
-                        <h5 class="card-title">Fundraising: How Your Donations Make a Difference</h5>
-                        <p class="card-text">Discover the impact of your generosity and how it transforms lives in our community.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-                <div class="card mb-4">
-                    <img src="images/annie-spratt-m0DUL38R49Y-unsplash.jpg" class="card-img-top" alt="Blog post image">
-                    <div class="card-body">
-                        <h5 class="card-title">Success Stories: How Your Donations Make a Difference</h5>
-                        <p class="card-text">Discover the impact of your generosity and how it transforms lives in our community.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-                <div class="card mb-4">
-                    <img src="images/john-mcarthur-Ue5kuMVmIhU-unsplash.jpg" class="card-img-top" alt="Blog post image">
-                    <div class="card-body">
-                        <h5 class="card-title">Events: How Your Donations Make a Difference</h5>
-                        <p class="card-text">Discover the impact of your generosity and how it transforms lives in our community.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <a href="project-details.html" class="btn btn-primary">Learn More</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <h3 class="mb-4">Categories</h3>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="volunteering.html">
-                            Volunteering
-                            <span class="badge bg-primary rounded-pill">12</span>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="fundraising.html">
-                            Fundraising
-                            <span class="badge bg-primary rounded-pill">8</span>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="success-stories.html">
-                            Success Stories
-                            <span class="badge bg-primary rounded-pill">15</span>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="events.html">
-                            Events
-                            <span class="badge bg-primary rounded-pill">7</span>
-                        </a>
-                    </li>
-                </ul>
+
+            <!-- Project 2 -->
+            <div class="col">
+                <div class="card h-100 shadow project-card">
+                    <img src="/images/after-school.jpg" class="card-img-top project-image" alt="Education for All">
+                    <div class="card-body">
+                        <h5 class="card-title">Education for All</h5>
+                        <p class="card-text">Building schools and providing educational resources to underprivileged children in rural areas.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col">
+                <div class="card h-100 shadow project-card">
+                    <img src="/images/food.jpg" class="card-img-top project-image" alt="Hunger Relief Program">
+                    <div class="card-body">
+                        <h5 class="card-title">Hunger Relief Program</h5>
+                        <p class="card-text">Distributing food and essential supplies to families affected by poverty and natural disasters.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="col">
+                <div class="card h-100 shadow project-card">
+                    <img src="/images/healthcare.jpg" class="card-img-top project-image" alt="Healthcare Outreach">
+                    <div class="card-body">
+                        <h5 class="card-title">Healthcare Outreach</h5>
+                        <p class="card-text">Providing medical care and health education to remote communities through mobile clinics and telemedicine.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="col">
+                <div class="card h-100 shadow project-card">
+                    <img src="/images/envi.jpg" class="card-img-top project-image" alt="Environmental Conservation">
+                    <div class="card-body">
+                        <h5 class="card-title">Environmental Conservation</h5>
+                        <p class="card-text">Protecting local ecosystems through reforestation efforts and promoting sustainable practices in communities.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="col">
+                <div class="card h-100 shadow project-card">
+                    <img src="/images/annie-spratt-Sn04BHfa2AY-unsplash.jpg" class="card-img-top project-image" alt="Women Empowerment">
+                    <div class="card-body">
+                        <h5 class="card-title">Women Empowerment</h5>
+                        <p class="card-text">Supporting women through skill development programs, microfinance initiatives, and advocacy for gender equality.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top footer-side">
         <div class="col-md-4 d-flex align-items-center">
@@ -201,7 +204,7 @@
           <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
           <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
         </ul>
-      </footer>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -214,21 +217,6 @@
                 navbar.classList.remove('scrolled');
             }
         });
-    </script>
-    <script>
-        // Function to update class based on number of logos
-        function updateLogoContainerClass() {
-            const container = document.getElementById('logosContainer');
-            const logoItems = container.getElementsByClassName('logo-item');
-            if (logoItems.length === 2) {
-                container.classList.add('two-items');
-            } else {
-                container.classList.remove('two-items');
-            }
-        }
-
-        // Run on page load
-        updateLogoContainerClass();
     </script>
 </body>
 </html>
