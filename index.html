@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Necessary Aid Alliance</title>
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="preloader.html">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
@@ -20,9 +19,161 @@
             margin: 0;
             color: white;
         }
+        .naa-preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("images/home2.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        @media (min-width: 768px) {
+            .naa-preloader {
+                background-attachment: fixed;
+            }
+        }
+
+        .naa-logo-wrapper {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin-bottom: 2rem;
+        }
+
+        .naa-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            z-index: 2;
+        }
+
+        .naa-logo-gray {
+            filter: grayscale(100%);
+        }
+
+        .naa-logo-color {
+            clip-path: inset(100% 0 0 0);
+            animation: naa-fillLogo 3s ease-in-out forwards;
+        }
+
+        @keyframes naa-fillLogo {
+            0% { clip-path: inset(100% 0 0 0); }
+            100% { clip-path: inset(0 0 0 0); }
+        }
+
+        .naa-spinner-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: naa-rotate 10s linear infinite;
+        }
+
+        .naa-spinner-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: naa-pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes naa-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes naa-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .naa-motto-container {
+            font-family: 'Gochi Hand', cursive;
+            font-size: 24px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .naa-motto {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .naa-motto span {
+            display: inline-block;
+            animation: naa-waveLetterUpDown 2s infinite ease-in-out;
+        }
+
+        .naa-motto span:nth-child(5n+1) { color: red; animation-delay: 0s; }
+        .naa-motto span:nth-child(5n+2) { color: yellow; animation-delay: 0.1s; }
+        .naa-motto span:nth-child(5n+3) { color: black; animation-delay: 0.2s; }
+        .naa-motto span:nth-child(5n+4) { color: green; animation-delay: 0.3s; }
+        .naa-motto span:nth-child(5n+5) { color: blue; animation-delay: 0.4s; }
+
+        @keyframes naa-waveLetterUpDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .naa-loading-bar-container {
+            width: 300px;
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .naa-loading-bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(to right, red, yellow, green, black, blue, orange);
+            transition: width 0.3s ease-out;
+        }
+
+        .naa-loading-text {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+
+        .naa-progress-percentage {
+            font-weight: bold;
+            color: #0d6efd;
+        }
     </style>
 </head>
-<body>
+    <div class="naa-preloader">
+        <div class="naa-logo-wrapper">
+            <img src="images/logo.png" alt="Necessary Aid Alliance Logo" class="naa-logo naa-logo-gray">
+            <img src="images/logo.png" alt="" class="naa-logo naa-logo-color" aria-hidden="true">
+            <div class="naa-spinner-container" id="naa-spinner-container">
+                <!-- Dots will be dynamically added here -->
+            </div>
+        </div>
+        <div class="naa-motto-container">
+            <div class="naa-motto" id="naa-motto"></div>
+        </div>
+        <div class="naa-loading-bar-container">
+            <div class="naa-loading-bar" id="naa-loading-bar"></div>
+        </div>
+        <div class="naa-loading-text">
+            Loading... <span class="naa-progress-percentage" id="naa-progress-percentage">0%</span>
+        </div>
+    </div>
+
+
     <div class="cont">
         <div class="call">
             <ul>
@@ -524,13 +675,84 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-        window.addEventListener('load', function() {
-          // Get the preloader container
-          const preloader = document.getElementById('preloader-container');
-          
-          // Add a class or style to hide it (e.g., opacity: 0)
-          preloader.classList.add('hidden'); // Example using a classnoteh
+        // Preloader script
+        document.addEventListener('DOMContentLoaded', function() {
+            const spinnerContainer = document.getElementById('naa-spinner-container');
+            const percentageText = document.getElementById('naa-progress-percentage');
+            const loadingBar = document.getElementById('naa-loading-bar');
+            const motto = document.getElementById('naa-motto');
+            const colors = ['red', 'yellow', 'green', 'black', 'blue', 'orange'];
+            const numDots = 20;
+            const mottoText = "NecessaryAid";
+
+            // Create dots
+            for (let i = 0; i < numDots; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'naa-spinner-dot';
+                const angle = (i / numDots) * 2 * Math.PI;
+                const x = 50 + 47 * Math.cos(angle);
+                const y = 50 + 47 * Math.sin(angle);
+                dot.style.left = `${x}%`;
+                dot.style.top = `${y}%`;
+                dot.style.backgroundColor = colors[i % colors.length];
+                spinnerContainer.appendChild(dot);
+            }
+
+            // Create motto with individual letter spans
+            mottoText.split('').forEach(letter => {
+                const span = document.createElement('span');
+                span.textContent = letter;
+                motto.appendChild(span);
+            });
+
+            // Simulated loading progress
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 1;
+                updateNaaLoader(progress);
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        document.querySelector('.naa-preloader').style.display = 'none';
+                    }, 500);
+                }
+            }, 30);
         });
+
+        function updateNaaLoader(progress) {
+            document.getElementById('naa-progress-percentage').textContent = `${progress}%`;
+            document.getElementById('naa-loading-bar').style.width = `${progress}%`;
+        }
+
+        // Function to be called when the page is fully loaded
+        function hideNaaPreloader() {
+            document.querySelector('.naa-preloader').style.display = 'none';
+        }
+
+        // Function to update the loader based on actual page load progress
+        function updateLoaderProgress(progress) {
+            updateLoader(progress);
+        }
+
+        // Listen for page load progress
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            updateLoaderProgress(100);
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+
+        // Simulate page load progress (remove this in production and use actual load events)
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 10;
+            updateLoaderProgress(progress);
+            if (progress >= 90) {
+                clearInterval(interval);
+            }
+        }, 300);
     </script>
     <script>
         window.addEventListener('scroll', function() {
